@@ -239,6 +239,7 @@
             }
 
             function setupStandardGame(token) {
+                const GV = new URLSearchParams(location.search).get('v') || 'wasm_4.2.0_bc2cd';
                 // Sets up and initializes the standard, logged-in version of the game.
                 requirejs.config({
                     baseUrl: "//static-web-pool-production.pool.miniclippt.com/site/master_173/js",
@@ -261,7 +262,7 @@
                     },
                     packages: [{
                         name: 'game',
-                        location: "//static-web-pool-production.pool.miniclippt.com/game/4.4.3_8602f/js",
+                        location: "//static-web-pool-production.pool.miniclippt.com/game/" + GV + "/js",
                         main: 'application'
                     }]
                 });
@@ -271,7 +272,7 @@
                     'app_id': 17,
                     'base_url': "//static-web-pool-production.pool.miniclippt.com/game",
                     'config_base_url': "//v34-web-live-config.pool.miniclippt.com",
-                    'client_version': "4.4.3_8602f",
+                    'client_version': GV,
                     'access_token': token,
                     'emmett': 1,
                     'config_id_game': 0,
